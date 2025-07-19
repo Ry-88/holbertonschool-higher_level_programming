@@ -1,5 +1,5 @@
 #!/usr/bin/python3
 def islower(c):
-    if c and len(c) == 1 and 'a' <= c <= 'z':
-        return True
-    return False
+    if not isinstance(c, str) or len(c) != 1:
+        raise TypeError("Input must be a single character string")
+    return 'a' <= c <= 'z'
