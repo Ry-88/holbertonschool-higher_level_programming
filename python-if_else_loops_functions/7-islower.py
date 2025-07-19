@@ -1,7 +1,5 @@
 #!/usr/bin/python3
 def islower(c):
-    if c:
-        if c >= chr(97) and c <= chr(122):
-            return True
-        else:
-            return False
+    if c and len(c) == 1 and 'a' <= c <= 'z':
+        return True
+    return False
