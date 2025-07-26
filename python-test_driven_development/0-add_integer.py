@@ -1,33 +1,18 @@
 #!/usr/bin/python3
-"""This module provides a function to add two integers or floats.
-
-The function ensures the inputs are integers or floats,
-casts them to integers, and returns their sum.
+"""
+Module 0-add_integer
+Contains one method that returns an int sum
+Accepts two values, whether int or float, and casts them to int before adding
 """
 
 
 def add_integer(a, b=98):
-
-    """Add two integers or floats.
-    Casts floats to ints and returns the sum.
     """
-    if (not isinstance(a, (int, float)) or
-        (isinstance(a, float) and
-         (a != a or a == float('inf') or a == float('-inf')))):
+    Returns a + b as int
+    """
+    if not isinstance(a, (int, float)):
         raise TypeError("a must be an integer")
-
-    if (not isinstance(b, (int, float)) or
-        (isinstance(b, float) and
-         (b != b or b == float('inf') or b == float('-inf')))):
+    elif not isinstance(b, (int, float)):
         raise TypeError("b must be an integer")
-
-    try:
-        a_int = int(a)
-    except OverflowError:
-        raise TypeError("a must be an integer")
-    try:
-        b_int = int(b)
-    except OverflowError:
-        raise TypeError("b must be an integer")
-
-    return a_int + b_int
+    else:
+        return int(a) + int(b)
