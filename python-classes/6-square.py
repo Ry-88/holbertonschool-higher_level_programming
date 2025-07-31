@@ -45,10 +45,14 @@ class Square:
     def position(self, value):
         """acsses and check on __position"""
 
-        if (not isinstance(value, tuple) or
-                len(value) != 2 or
-                not all(isinstance(num, int) for num in value) or
-                not all(num >= 0 for num in value)):
+        if (
+            type(value) is not tuple
+            or len(value) != 2
+            or type(value[0]) is not int
+            or type(value[1]) is not int
+            or value[0] < 0
+            or value[1] < 0
+        ):
             raise TypeError("position must be a tuple of 2 positive integers")
         self.__position = value
 
@@ -59,7 +63,7 @@ class Square:
         Returns:
             The area of the square
         """
-        return self.__size ** 2
+        return self.__size * self.__size
 
     def my_print(self):
         """prints in stdout the square with the character #"""
@@ -72,4 +76,4 @@ class Square:
             print()
 
         for j in range(self.__size):
-            print(" " * self.__position[0] + "#" * self.size)
+            print(" " * self.__position[0] + "#" * self.__size)
