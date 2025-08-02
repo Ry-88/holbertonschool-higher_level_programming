@@ -96,7 +96,7 @@ class Rectangle:
         for _ in range(self.height):
             lines.append("#" * self.width)
         return "\n".join(lines)
-    
+
     def __repr__(self):
         """
         Returns a reproducible string representation of the rectangle.
