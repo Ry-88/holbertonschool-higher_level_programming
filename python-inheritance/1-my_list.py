@@ -9,3 +9,7 @@ class MyList(list):
         """prints the list on ascending sort"""
         l_copy = self.copy()
         print(sorted(l_copy))
+
+    def __str__(self):
+        """Returns the string representation of the list"""
+        return super().__str__()
