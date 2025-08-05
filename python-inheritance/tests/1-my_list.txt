@@ -7,5 +7,6 @@
 >>> my_list.append(0)
 >>> print(my_list)
 [5, 2, 4, 0]
+>>> my_list.append(-1)
 >>> my_list.print_sorted()
-[0, 2, 4, 5]
+[-1, 0, 2, 4, 5]
