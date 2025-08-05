@@ -10,3 +10,6 @@
 >>> my_list.append(-1)
 >>> my_list.print_sorted()
 [-1, 0, 2, 4, 5]
+>>> my_list.clear()
+>>> my_list.print_sorted()
+[]
