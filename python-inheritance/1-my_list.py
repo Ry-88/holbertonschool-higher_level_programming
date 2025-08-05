@@ -5,11 +5,10 @@
 class MyList(list):
     """inherit from list"""
 
+    def __int__(self):
+        """initialization"""
+        self.super().__init__()
+
     def print_sorted(self):
         """prints the list on ascending sort"""
-        l_copy = self.copy()
-        print(sorted(l_copy))
-
-    def __str__(self):
-        """Returns the string representation of the list"""
-        return super().__str__()
+        print(sorted(self))
