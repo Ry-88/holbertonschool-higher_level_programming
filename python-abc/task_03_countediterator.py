@@ -23,12 +23,12 @@ class CountedIterator(object):
         """
         return self
 
-    def next(self):
+    def __next__(self):
         """
         Retrieve the next item from the iterator.
         """
         try:
-            item = self.iterator.next()
+            item = next(self.iterator)
             self.count += 1
             return item
         except StopIteration:
