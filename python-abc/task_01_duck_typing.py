@@ -1,17 +1,17 @@
 #!/usr/bin/python3
 """
-This module demonstrates Abstract Base Classes (ABCs) and duck typing in Python.
+Module: shapes
+Demonstrates Abstract Base Classes (ABCs) and duck typing
 """
 
-from abc import ABCMeta, abstractmethod
+from abc import ABC, abstractmethod
 import math
 
 
-class Shape(object):
+class Shape(ABC):
     """
     Abstract base class for all shapes.
     """
-    __metaclass__ = ABCMeta
 
     @abstractmethod
     def area(self):
