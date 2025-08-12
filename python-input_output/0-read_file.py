@@ -5,7 +5,6 @@
 def read_file(filename=""):
     """function to read a file"""
 
-    file = open("my_file_0.txt", "r")
-    content = file.read()
-    print(content)
-    file.close
+    with open("my_file_0.txt", "r") as file:
+        content = file.read()
+        print(content)
