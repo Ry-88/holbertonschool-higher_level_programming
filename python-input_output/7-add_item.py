@@ -12,6 +12,9 @@ filename = "add_item.json"
 items = []
 
 with open(filename, "a", encoding="utf-8"):
+    """adds all arguments to a Python list,
+    and then save"""
+
     items = load_from_json_file(filename)
     items.extend(sys.argv[1:])
     save_to_json_file(items, filename)
