@@ -32,18 +32,7 @@ def deserialize_from_xml(filename):
 
         dictionary = {}
         for child in root:
-            text = child.text
-
-            if text is None:
-                dictionary[child.tag] = None
-            elif text.isdigit():
-                dictionary[child.tag] = int(text)
-            elif text.lower() == "true":
-                dictionary[child.tag] = True
-            elif text.lower() == "false":
-                dictionary[child.tag] = False
-            else:
-                dictionary[child.tag] = text
+            dictionary[child.tag] = child.text
 
         return dictionary
     except Exception:
