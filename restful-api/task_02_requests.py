@@ -10,7 +10,7 @@ def fetch_and_print_posts():
     if status.status_code == 200:
         posts = status.json()
         for post in posts:
-            print(post["tilte"])
+            print(post["title"])
 
 def fetch_and_save_posts():
     status = requests.get('https://jsonplaceholder.typicode.com/posts')
