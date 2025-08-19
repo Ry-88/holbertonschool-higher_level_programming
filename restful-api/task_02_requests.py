@@ -21,7 +21,7 @@ def fetch_and_save_posts():
             {"id": post["id"], "title": post["title"], "body": post["body"]}
             for post in posts
         ]
-        with open("posts.csv", "w", encoding="utf-8") as file:
+        with open("posts.csv", "w", newline="", encoding="utf-8") as file:
             w = csv.DictWriter(file, fieldnames=["id", "title", "body"])
             w.writeheader()
-            w.writerow(posts_dec)
+            w.writerows(posts_dec)
