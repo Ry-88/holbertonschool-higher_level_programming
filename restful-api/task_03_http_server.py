@@ -27,7 +27,6 @@ class SimpleRequest(BaseHTTPRequestHandler):
                 }
             self.wfile.write(json.dumps(data).encode("utf-8"))
         elif self.path == "/status":
-            # Status endpoint
             self.send_response(200)
             self.send_header("Content-type", "application/json")
             self.end_headers()
