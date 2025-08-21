@@ -24,7 +24,7 @@ def status():
 @app.route("/users/<username>")
 def username(username):
     if username in users:
-        return f"{users.get(username)}"
+        return jsonify(users[username])
     else:
         return jsonify({"error": "User not found"})
 
@@ -49,6 +49,6 @@ def add_user():
 
     users[username] = new_user
 
-    return jsonify({"message": "user added"}, new_user), 201
+    return jsonify({"message": "user added", "user": new_user}), 201
 
 if __name__ == "__main__": app.run(debug=True)
