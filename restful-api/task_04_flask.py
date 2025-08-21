@@ -10,8 +10,7 @@ users = {}
 
 @app.route("/data")
 def data():
-    names = [user["name"] for user in users.values()]
-    return jsonify(names)
+    return jsonify(list(users.keys()))
 
 @app.route("/status")
 def status():
@@ -19,8 +18,9 @@ def status():
 
 @app.route("/users/<username>")
 def get_user(username):
-    if username in users:
-        return jsonify(users[username])
+    user = users.get(username)
+    if user:
+        return jsonify(user)
     else:
         return jsonify({"error": "User not found"}), 404
 
@@ -28,12 +28,12 @@ def get_user(username):
 def add_user():
     data = request.get_json()
 
-    if not data or "username" not in data or "name" not in data or "age" not in data or "city" not in data:
-        return jsonify({"error": "Missing required fields"}), 400
+    if not data or "username" not in data:
+        return jsonify({"error": "Username is required"}), 400
     
     username = data["username"]
 
-    if username in users:
+    if username == users:
         return jsonify({"error": "Username already exists"}), 400
     
     new_user = {
@@ -45,7 +45,7 @@ def add_user():
 
     users[username] = new_user
 
-    return jsonify({"message": "User added", "user": new_user}), 201
+    return jsonify({"message": "User added", "user": users[username]}), 201
 
 if __name__ == "__main__":
     app.run(debug=True)
