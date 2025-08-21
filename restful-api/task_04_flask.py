@@ -9,8 +9,7 @@ app = Flask(__name__)
 def home():
     return "Welcome to the Flask API!"
 
-users = {"jane": {"username": "jane", "name": "Jane", "age": 28, "city": "Los Angeles"},
-         "john": {"username": "john", "name": "John", "age": 30, "city": "New York"}}
+users = {}
 
 @app.route("/data")
 def data():
@@ -26,7 +25,7 @@ def username(username):
     if username in users:
         return jsonify(users[username])
     else:
-        return jsonify({"error": "User not found"})
+        return jsonify({"error": "User not found"}), 400
 
 @app.route("/add_user", methods=["POST"])
 def add_user():
@@ -38,7 +37,7 @@ def add_user():
     username = data["username"]
 
     if username in users:
-        return jsonify({"error": "username alreday exists"}), 400
+        return jsonify({"error": "Username already exists"}), 400
     
     new_user = {
         "username": data["username"],
