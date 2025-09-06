@@ -39,8 +39,12 @@ if __name__ == "__main__":
 
     # Fetch and print results
     cities = cursor.fetchall()
-    for city in cities:
-        print(city)
+
+    # Extract just the city names into a list
+    city_names = [city[0] for city in cities]
+
+    # Print them as a single line, comma-separated
+    print(", ".join(city_names))
 
     # Clean up
     cursor.close()
