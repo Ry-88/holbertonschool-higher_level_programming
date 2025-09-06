@@ -26,10 +26,12 @@ if __name__ == "__main__":
     cursor = db.cursor()
 
     # Execute a single SQL query
-    cursor.execute("SELECT cities.id, cities.name, states.name "
+    cursor.execute(
+        "SELECT cities.id, cities.name, states.name "
         "FROM cities "
         "JOIN states ON cities.state_id = states.id "
-        "ORDER BY cities.id ASC")
+        "ORDER BY cities.id ASC"
+    )
 
     # Fetch and print results
     cities = cursor.fetchall()
