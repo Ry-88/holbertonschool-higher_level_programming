@@ -37,8 +37,9 @@ if __name__ == "__main__":
 
     # Fetch and print results
     states = cursor.fetchall()
-    for state in states:
-        print(state)
+    for row in states:
+        if row[1] == state_name:
+            print(row)
 
     # Clean up
     cursor.close()
