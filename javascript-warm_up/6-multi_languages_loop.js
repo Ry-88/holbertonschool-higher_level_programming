@@ -10,10 +10,14 @@ const lines = [
   // Initialize an empty string
   let output = '';
   
-  // Loop through the array and append each line with a newline character
+  // Loop through the array
   for (let i = 0; i < lines.length; i++) {
     output += lines[i];
+    if (i < lines.length - 1) {
+      output += '\n';
+    }
   }
   
   // Print all lines at once
   console.log(output);
+  
