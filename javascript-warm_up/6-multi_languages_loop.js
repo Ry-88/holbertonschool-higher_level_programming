@@ -1,23 +1,20 @@
 #!/usr/bin/node
 
-// Array of lines
 const lines = [
     'C is fun',
     'Python is cool',
     'JavaScript is amazing'
   ];
   
-  // Initialize an empty string
   let output = '';
+  let i = 0;
   
-  // Loop through the array
-  for (let i = 0; i < lines.length; i++) {
+  while (i < lines.length) {
     output += lines[i];
-    if (i < lines.length - 1) {
-      output += '\n';
-    }
+    i++;
+    // Only add newline if not the last element
+    output += i < lines.length ? '\n' : '';
   }
   
-  // Print all lines at once
   console.log(output);
   
